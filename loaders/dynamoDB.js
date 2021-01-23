@@ -1,4 +1,3 @@
-// var { AWS_ACCESS_KEY, AWS_SERECT_ACCESS_KEY } = require('../config/key.js');
 var AWS = require("aws-sdk");
 // https://docs.aws.amazon.com/zh_tw/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.03.html
 // https://www.thinbug.com/q/3764366
@@ -7,7 +6,7 @@ AWS.config.update({
   apiVersion: '2021-01-01',
   endpoint: "http://dynamodb.ap-northeast-1.amazonaws.com",
   accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SERECT_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRECT_ACCESS_KEY,
 });
 
 var dynamodb = new AWS.DynamoDB.DocumentClient();
