@@ -12,9 +12,9 @@ app.get('/', (req, res) => {
 app.use('/product', productRouters);
 
 // HTTP server
-const server = app.listen(port, () => {
+const server = app.listen(port, function() {
 console.log('\r\n/----- Launch server -----');
 console.log(`Server started at ${port}...\r\n`);
-})
+});
 
 module.exports = server;
