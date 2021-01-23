@@ -6,10 +6,10 @@ const app = express();
 Follow this design: https://softwareontheroad.com/ideal-nodejs-project-structure/
 */
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Welcome to use API.');
 });
 
-app.use('/api', productRouters);
+app.use('/product', productRouters);
 
 // HTTP server
 const server = app.listen(port, () => {
