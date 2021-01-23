@@ -6,8 +6,8 @@ AWS.config.update({
   region: "ap-northeast-1",
   apiVersion: '2021-01-01',
   endpoint: "http://dynamodb.ap-northeast-1.amazonaws.com",
-//   accessKeyId: process.env.AWS_ACCESS_KEY,
-//   secretAccessKey: process.env.AWS_SERECT_ACCESS_KEY,
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SERECT_ACCESS_KEY,
 });
 
 var dynamodb = new AWS.DynamoDB.DocumentClient();
