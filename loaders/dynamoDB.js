@@ -6,7 +6,7 @@ AWS.config.update({
   apiVersion: '2021-01-01',
   endpoint: "http://dynamodb.ap-northeast-1.amazonaws.com",
   accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRECT_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
 var dynamodb = new AWS.DynamoDB.DocumentClient();
