@@ -6,6 +6,8 @@ const { getProduct } = require('../services/product');
 router.get('/:productName', async(req, res, next) => {
     const productName = req.params.productName;
     const data = await getProduct(productName);
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'https://product-demo.yyisyou.tw/');
     res.json(data);
 });
 
