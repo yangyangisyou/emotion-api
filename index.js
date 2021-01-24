@@ -8,6 +8,8 @@ const app = express();
 Follow this design: https://softwareontheroad.com/ideal-nodejs-project-structure/
 */
 app.get('/', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'https://product-demo.yyisyou.tw/');
     res.send('Welcome to use API.');
 });
 
