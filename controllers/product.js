@@ -7,7 +7,7 @@ router.get('/:productName', async(req, res, next) => {
     const productName = req.params.productName;
     const data = await getProduct(productName);
     res.json(data);
-  });
+});
 
 //   router.post('/:productName', (req, res, next) => {
 //     const productName = req.params.productName;
