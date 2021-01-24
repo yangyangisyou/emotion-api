@@ -22,9 +22,10 @@
   "homepage": "https://github.com/yangyangisyou/cards-api#readme",
   "dependencies": {
     "aws-sdk": "^2.831.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "uuid": "^8.3.2",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "swagger-jsdoc": "^6.0.1",
