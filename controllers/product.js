@@ -1,12 +1,17 @@
 const express = require('express')
 const router = express.Router();
 // const bodyParser = require('body-parser');
-const { getProduct } = require('../services/product');
+const { getTitleList, getProductList } = require('../services/product');
 
-router.get('/:productName', async(req, res, next) => {
-    const productName = req.params.productName;
-    const data = await getProduct(productName);
+router.get('/hotTitle', async(req, res, next) => {
+    const data = await getTitleList();
     res.json(data);
+});
+
+router.get('/list/:productName', async(req, res, next) => {
+  const productName = req.params.productName;
+  const data = await getProductList(productName);
+  res.json(data);
 });
 
 //   router.post('/:productName', (req, res, next) => {
