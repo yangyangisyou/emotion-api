@@ -38,48 +38,19 @@ async function getProductList(productNo) {
                 code: 200,
                 data: [
                     {
-                      productName: 'Tofu', description: 'It tastes like the pudding.', userName: 'Joanne', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                      productName: 'Tofu', description: 'It tastes like the pudding.', userName: 'Joanne', productNo: '10000', avatar: 'https://scitechdaily.com/images/Cat-COVID-19-Mask-777x518.jpg', picture: 'https://fairylolita.com/wp-content/uploads/DSCF4415.jpg',
                     },
                     {
-                      productName: 'Noodles', description: 'We can also cooks noodles at home.', userName: 'Joe', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                      productName: 'Noodles', description: 'We can also cooks noodles at home.', userName: 'Joe', productNo: '10000', avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png', picture: 'https://tw.savorjapan.com/gg/content_image/t0039_002_20180115022046.jpg',
                     },
                     {
-                      productName: 'Drink', description: 'Drinks all arounds our life.', userName: 'Coco', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                      productName: 'Drink', description: 'Drinks all arounds our life.', userName: 'Coco', productNo: '10000', avatar: 'https://www.thelabradorsite.com/wp-content/uploads/2017/09/Cute-Dog-Names-LS-long-696x377.jpg', picture: 'https://www.gomaji.com/blog/wp-content/uploads/2020/02/l-59-696x464.jpg',
                     },
                     {
-                      productName: 'Cake', description: 'I found a dream cake in my life.', userName: 'Danny', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                ]
-            };
-        }
-        case '20000': {
-            return {
-                code: 200,
-                data: [
-                    {
-                      productName: 'Tofu', description: 'It tastes like the pudding.', userName: 'Joanne', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                      productName: 'Cake', description: 'I found a dream cake in my life.', userName: 'Danny', productNo: '10000', avatar: 'https://www.humanesociety.org/sites/default/files/styles/1441x612/public/2018/08/kitten-440379.jpg?h=c8d00152&itok=HVqvfhtg', picture: 'https://ct.yimg.com/xd/api/res/1.2/18aRArwk57wluetN8IjX0g--/YXBwaWQ9eXR3YXVjdGlvbnNlcnZpY2U7aD02ODI7cT04NTtyb3RhdGU9YXV0bzt3PTcwMA--/https://s.yimg.com/ob/image/86b398ca-8103-4f74-98f9-e7a539e03495.jpg',
                     },
                     {
-                      productName: 'tofu', description: 'nice', userName: 'Coco', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                    {
-                      productName: 'tofu', description: 'nice', userName: 'Coco', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                ]
-            };
-        }
-        case '30000': {
-            return {
-                code: 200,
-                data: [
-                    {
-                      productName: 'Tofu', description: 'It tastes like the pudding.', userName: 'Joanne', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                    {
-                      productName: 'tofu', description: 'nice', userName: 'Coco', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                    {
-                      productName: 'tofu', description: 'nice', userName: 'Coco', productNo: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                      productName: 'Candy', description: 'Candy!!!', userName: 'Shally', productNo: '10000', avatar: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png', picture: 'https://meethub.bnext.com.tw/wp-content/uploads/2018/08/Candy-Cover-1038x693.jpg',
                     },
                 ]
             };
