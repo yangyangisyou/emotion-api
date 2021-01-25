@@ -8,19 +8,10 @@ router.get('/hotTitle', async(req, res, next) => {
     res.json(data);
 });
 
-router.get('/list/:productName', async(req, res, next) => {
-  const productName = req.params.productName;
-  const data = await getProductList(productName);
+router.get('/list/:productNo', async(req, res, next) => {
+  const productNo = req.params.productNo;
+  const data = await getProductList(productNo);
   res.json(data);
 });
-
-//   router.post('/:productName', (req, res, next) => {
-//     const productName = req.params.productName;
-//     const { title, desc, username } = req.body;
-//     const schema = productModel.createProduct({
-//         title, desc, username,
-//     });
-//     res.json();
-//   });
 
 module.exports = router;
