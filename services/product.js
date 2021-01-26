@@ -70,18 +70,18 @@ async function getProductList(productCat) {
         }
         case '30000': {
             return {
-                code: 200,
-                data: [
-                    {
-                      productName: 'Tofu', productNo: 8,description: 'It tastes like the pudding.', userName: 'Joanne', productCat: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                    {
-                      productName: 'tofu', productNo: 9,description: 'nice', userName: 'Coco', productCat: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                    {
-                      productName: 'tofu', productNo: 10,description: 'nice', userName: 'Coco', productCat: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
-                    },
-                ]
+            code: 200,
+            data: [
+                {
+                    productName: 'Tofu', productNo: 8,description: 'It tastes like the pudding.', userName: 'Joanne', productCat: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                },
+                {
+                    productName: 'tofu', productNo: 9,description: 'nice', userName: 'Coco', productCat: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                },
+                {
+                    productName: 'tofu', productNo: 10,description: 'nice', userName: 'Coco', productCat: '10000', imageLink: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
+                },
+            ]
             };
         }
         default: {
