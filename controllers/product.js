@@ -8,9 +8,9 @@ router.get('/hotTitle', async(req, res, next) => {
     res.json(data);
 });
 
-router.get('/list/:productNo', async(req, res, next) => {
-  const productNo = req.params.productNo;
-  const data = await getProductList(productNo);
+router.get('/list/:productCat', async(req, res, next) => {
+  const productCat = req.params.productCat;
+  const data = await getProductList(productCat);
   res.json(data);
 });
 
