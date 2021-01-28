@@ -4,7 +4,6 @@ const { port } = require('./config/setting');
 const swaggerUI = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const cors = require('cors');
-require('dotenv').config();
 const app = express();
 
 /*
