@@ -1,10 +1,12 @@
 const express = require('express');
-const { productRouters } = require('./controllers');
+const { productRouters, assetRouters } = require('./controllers');
 const { port } = require('./config/setting');
 const swaggerUI = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const cors = require('cors');
+require('dotenv').config();
 const app = express();
+
 /*
 Follow this design: https://softwareontheroad.com/ideal-nodejs-project-structure/
 */
@@ -14,6 +16,7 @@ app.get('/', (req, res) => {
 app.use(cors());
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use('/product', productRouters);
+app.use('/asset', assetRouters);
 
 // HTTP server
 const server = app.listen(port, function() {
