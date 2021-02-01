@@ -1,4 +1,24 @@
 const dynamoDB = require('../loaders/dynamoDB');
+const uuid = require('uuid');
+const dayjs = require('dayjs');
+
+async function createProduct(payload) {
+  const productId = uuid.v4();
+  const currentDate = dayjs();
+  const queryParams = {
+    TableName: 'products',
+    Item: {
+      ...payload,
+      productId: productId,
+      createDate: currentDate.format('YYYY-MM-DD'),
+      createTime: currentDate.format('HH:mm:ss Z'),
+    },
+  };
+  console.log('queryParams: ',queryParams);
+  const data = await dynamoDB.putItem(queryParams);
+  console.log('in createProduct: ', data);
+  return { ...data, productId };
+};
 
 async function getTitleList() {
     // For dummy data
@@ -107,6 +127,7 @@ async function getProductList(productCat) {
 };
 
 module.exports = {
+    createProduct,
     getProductList,
     getTitleList,
 };
