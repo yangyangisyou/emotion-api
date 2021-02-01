@@ -26,7 +26,7 @@ async function uploadObject(BucketName, fileName, content) {
   let path = require('path');
   uploadParams.Key = path.basename(file);
   uploadParams.Key = fileName;
-  console.log('uploadParams: ' + uploadParams);
+  console.log('uploadParams: ', JSON.stringify(uploadParams));
   // call S3 to retrieve upload file to specified bucket
   const promise = new Promise((resolve) => {
     try {
