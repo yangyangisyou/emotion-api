@@ -22,20 +22,28 @@ async function createBucket() {
 async function uploadObject(BucketName, fileName, content) {
   let uploadParams = { Bucket: BucketName, Key: '', Body: '' };
   let file = fileName;
-
   uploadParams.Body = content;
   let path = require('path');
   uploadParams.Key = path.basename(file);
   uploadParams.Key = fileName;
   console.log('uploadParams: ' + uploadParams);
   // call S3 to retrieve upload file to specified bucket
-  s3.upload(uploadParams, (err, data) => {
-    if (err) {
-      console.log('Error', err);
-    } if (data) {
-      console.log('Upload Success', data.Location);
+  const promise = new Promise((resolve) => {
+    try {
+      s3.upload(uploadParams, (err, data) => {
+        if (err) {
+          console.log('Error', err);
+          resolve({ code: err.statusCode, data: null });
+        } if (data) {
+          console.log('Upload Success', data.Location);
+          resolve({ code: 200, data: data.Item });
+        }
+      })
+    }catch (err) {
+      resolve({ code: 500 });
     }
   });
+  return promise;
 }
 
 async function putObject(BucketName, fileName, content) {

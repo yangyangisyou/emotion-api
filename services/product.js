@@ -1,6 +1,15 @@
 const dynamoDB = require('../loaders/dynamoDB');
+const s3 = require('../loaders/s3');
 const uuid = require('uuid');
 const dayjs = require('dayjs');
+
+async function uploadImage(payload) {
+  const image = payload.image;
+  const imageName = uuid.v1();
+  const result = await s3.uploadObject('yy-product-image', imageName, image);
+  console.log('result: ', result);
+  return result;
+};
 
 async function createProduct(payload) {
   const productId = uuid.v4();
@@ -127,6 +136,7 @@ async function getProductList(productCat) {
 };
 
 module.exports = {
+    uploadImage,
     createProduct,
     getProductList,
     getTitleList,
