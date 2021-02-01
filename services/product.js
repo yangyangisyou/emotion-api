@@ -8,7 +8,7 @@ async function uploadImage(payload) {
   const imageName = uuid.v1();
   const result = await s3.uploadObject('yy-product-image', imageName, image);
   console.log('result: ', result);
-  return result;
+  return { ...result, imageName };
 };
 
 async function createProduct(payload) {
