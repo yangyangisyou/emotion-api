@@ -1,4 +1,4 @@
-
+const fs = require('fs');
 const AWS = require('aws-sdk');
 // Set the region
 
