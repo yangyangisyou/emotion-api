@@ -15,10 +15,10 @@ app.get('/', (req, res) => {
 });
 
 // create application/json parser
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: "50mb"}));
 
 // create application/x-www-form-urlencoded parser
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb', parameterLimit: 50000 }));
 
 app.use(cors());
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
