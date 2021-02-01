@@ -15,9 +15,6 @@ router.get('/list/:productCat', async(req, res, next) => {
 
 router.post('/upload/image', async(req, res, next) => {
   const body = req.body;
-  console.log('req==>', req);
-  console.log('body==>', body);
-  console.log('data==>', body.data);
   if(body) {
     const data = await uploadImage(body);
     if(data.code === 200) {
