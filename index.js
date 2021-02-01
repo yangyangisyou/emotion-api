@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
 app.use(bodyParser.json());
 
 // create application/x-www-form-urlencoded parser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.limit('50mb')); 
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+
 app.use(cors());
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use('/product', productRouters);
