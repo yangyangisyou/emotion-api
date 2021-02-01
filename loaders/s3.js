@@ -5,6 +5,7 @@ const AWS = require('aws-sdk');
 const s3 = new AWS.S3({
   region: 'ap-northeast-1',
   apiVersion: '2021-02-01',
+  endpoint: 'http://yy-product-image.s3-ap-northeast-1.amazonaws.com',
   accessKeyId: process.env.AWS_ACCESS_KEY,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
