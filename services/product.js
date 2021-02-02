@@ -6,7 +6,9 @@ const dayjs = require('dayjs');
 async function uploadImage(payload) {
   const image = payload.image;
   const imageName = uuid.v1();
-  const result = await s3.uploadObject('yy-product-image', imageName, image);
+  const ContentEncoding = 'base64';
+  const ContentType = 'image/png';
+  const result = await s3.uploadObject('yy-product-image', imageName, image, ContentEncoding, ContentType);
   console.log('result: ', result);
   return { ...result, imageName };
 };

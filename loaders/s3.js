@@ -20,8 +20,20 @@ async function createBucket() {
   });
 }
 
-async function uploadObject(BucketName, fileName, content) {
+async function uploadObject(BucketName, fileName, content, ContentEncoding, ContentType) {
   let uploadParams = { Bucket: BucketName, Key: '', Body: '' };
+  if(ContentEncoding) {
+    uploadParams = {
+      ...uploadParams,
+      ContentEncoding: ContentEncoding,
+    }
+  }
+  if(ContentType) {
+    uploadParams = {
+      ...uploadParams,
+      ContentType: ContentType,
+    }
+  }
   let file = fileName;
   uploadParams.Body = content;
   let path = require('path');
@@ -47,8 +59,20 @@ async function uploadObject(BucketName, fileName, content) {
   return promise;
 }
 
-async function putObject(BucketName, fileName, content) {
+async function putObject(BucketName, fileName, content, ContentEncoding, ContentType) {
   let putObjectParams = { Bucket: BucketName, Key: '', Body: '' };
+  if(ContentEncoding) {
+    putObjectParams = {
+      ...putObjectParams,
+      ContentEncoding: ContentEncoding,
+    }
+  }
+  if(ContentType) {
+    putObjectParams = {
+      ...putObjectParams,
+      ContentType: ContentType,
+    }
+  }
   putObjectParams.Key = fileName;
   putObjectParams.Body = content;
   console.log('s3Proxy: FilePath:', BucketName + '/' + fileName);
