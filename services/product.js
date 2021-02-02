@@ -11,7 +11,7 @@ async function uploadImage(payload) {
   const ContentType = 'image/png';
   console.log('bufImage==>',bufImage);
   const result = await s3.uploadObject('yy-product-image', imageName, bufImage, ContentEncoding, ContentType);
-  // console.log('result: ', result);
+  console.log('result: ', result);
   return { ...result, imageName };
 };
 
@@ -27,9 +27,19 @@ async function createProduct(payload) {
       createTime: currentDate.format('HH:mm:ss Z'),
     },
   };
-  console.log('queryParams: ',queryParams);
   const data = await dynamoDB.putItem(queryParams);
-  console.log('in createProduct: ', data);
+  return { ...data, productId };
+};
+
+async function updateProduct(productId, payload) {
+  const queryParams = {
+    TableName: 'products',
+    Item: {
+      ...payload,
+      productId: productId,
+    },
+  };
+  const data = await dynamoDB.updateItem(queryParams);
   return { ...data, productId };
 };
 

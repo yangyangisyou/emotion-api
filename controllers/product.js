@@ -21,6 +21,7 @@ router.post('/upload/image', async(req, res, next) => {
       res.json({
         success: true,
         message: 'success-upload-image',
+        data: data.imageName,
       });
     } else {
       res.status(400).json(
