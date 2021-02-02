@@ -20,6 +20,7 @@ async function createBucket() {
   });
 }
 
+// Reference: https://stackoverflow.com/questions/7511321/uploading-base64-encoded-image-to-amazon-s3-via-node-js
 async function uploadObject(BucketName, fileName, content, ContentEncoding, ContentType) {
   let uploadParams = { Bucket: BucketName, Key: '', Body: '' };
   if(ContentEncoding) {
