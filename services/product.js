@@ -37,11 +37,14 @@ async function updateProduct(payload) {
   const imageName = payload.imageName;
   const queryParams = {
     TableName: 'products',
-    Key: productId,
+    Key: {
+      productId,
+    },
     Item: {
       imageName,
     },
   };
+  console.log('update queryParams: ',queryParams);
   const data = await dynamoDB.updateItem(queryParams);
   return { ...data, productId };
 };
