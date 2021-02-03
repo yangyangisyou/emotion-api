@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { getTitleList, getProductList, createProduct, uploadImage } = require('../services/product');
+const { getTitleList, getProductList, createProduct, uploadImage, updateProduct } = require('../services/product');
 
 router.get('/hotTitle', async(req, res, next) => {
     const data = await getTitleList();
