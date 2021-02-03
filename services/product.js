@@ -10,9 +10,7 @@ async function uploadImage(payload) {
   const imageName = uuid.v1();
   const ContentEncoding = 'base64';
   const ContentType = 'image/png';
-  console.log('bufImage==>',bufImage);
   const result = await s3.uploadObject('yy-product-image', imageName, bufImage, ContentEncoding, ContentType);
-  console.log('result: ', result);
   return { ...result, imageName, productId };
 };
 
@@ -30,6 +28,17 @@ async function createProduct(payload) {
   };
   const data = await dynamoDB.putItem(queryParams);
   return { ...data, productId };
+};
+
+async function getProductItem(productId) {
+  const queryParams = {
+      TableName: 'products',
+      Key: {
+        productId,
+      },
+  };
+  const data = await dynamoDB.getItem(queryParams);
+  return data;
 };
 
 async function updateProduct(payload) {
@@ -53,8 +62,6 @@ async function updateProduct(payload) {
     // step 4. 回傳所有值
     ReturnValues: "ALL_NEW",
   };
-  
-  console.log('update queryParams: ',queryParams);
   const data = await dynamoDB.updateItem(queryParams);
   return { ...data, productId };
 };
@@ -171,4 +178,5 @@ module.exports = {
     createProduct,
     getProductList,
     getTitleList,
+    getProductItem,
 };

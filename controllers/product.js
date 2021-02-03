@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { getTitleList, getProductList, createProduct, uploadImage, updateProduct } = require('../services/product');
+const { getTitleList, getProductList, createProduct, uploadImage, updateProduct, getProductItem } = require('../services/product');
 
 router.get('/hotTitle', async(req, res, next) => {
     const data = await getTitleList();
@@ -11,6 +11,24 @@ router.get('/list/:productCat', async(req, res, next) => {
   const productCat = req.params.productCat;
   const data = await getProductList(productCat);
   res.json(data);
+});
+
+router.get('/product/:productId', async(req, res, next) => {
+  const productId = req.params.productId;
+  const result = await getProductItem(productId);
+  console.log('data /product: ', result);
+  if(result.code === 200) {
+    res.json({
+      success: true,
+      message: 'load-product-item-success',
+      data: result.data,
+    });
+  } else {
+    res.json({
+      success: false,
+      message: 'load-product-item-fail',
+    });
+  }
 });
 
 router.post('/upload/image', async(req, res, next) => {
@@ -24,11 +42,10 @@ router.post('/upload/image', async(req, res, next) => {
         imageName: imageName,
         productId: productId,
       });
-      console.log('updateDatabaseResult: ',updateDatabaseResult);
       if(updateDatabaseResult.code === 200) {
         res.json({
           success: true,
-          message: 'success-upload-image',
+          message: 'upload-image-success',
           data: {
             imageName, productId,
           },
@@ -37,7 +54,7 @@ router.post('/upload/image', async(req, res, next) => {
         res.status(400).json(
           {
             success: false,
-            message: 'fail-upload-image-to-database',
+            message: 'upload-image-to-database-fail',
           }
         );
       }
@@ -45,7 +62,7 @@ router.post('/upload/image', async(req, res, next) => {
       res.status(400).json(
         {
           success: false,
-          message: 'fail-upload-image-to-s3',
+          message: 'upload-image-to-s3-fail',
         }
       );
     }
@@ -68,14 +85,14 @@ router.post('/create', async(req, res, next) => {
     if(data.code === 200) {
       res.json({
         success: true,
-        message: 'success-create-item',
+        message: 'create-item-success',
         productId: data.productId,
       });
     } else {
       res.status(400).json(
         {
           success: false,
-          message: 'fail-create-item-to-database',
+          message: 'create-item-to-database-fail',
         }
       );
     }
