@@ -33,6 +33,7 @@ async function createProduct(payload) {
 };
 
 async function updateProduct(payload) {
+  const productId = payload.productId;
   const queryParams = {
     TableName: 'products',
     Item: {
