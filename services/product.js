@@ -40,10 +40,20 @@ async function updateProduct(payload) {
     Key: {
       productId,
     },
-    Item: {
-      imageName,
+    // step 1. 設定取值
+    ExpressionAttributeNames: {
+      '#imageName': 'imageName'
     },
+    // step 2. 設定修改的目標
+    UpdateExpression: "set #imageName = :val1",
+    // step 3. 設定更新
+    ExpressionAttributeValues: {
+      ":val1": imageName,
+    },
+    // step 4. 回傳所有值
+    ReturnValues: "ALL_NEW",
   };
+  
   console.log('update queryParams: ',queryParams);
   const data = await dynamoDB.updateItem(queryParams);
   return { ...data, productId };

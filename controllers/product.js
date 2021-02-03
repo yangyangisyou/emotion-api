@@ -24,6 +24,7 @@ router.post('/upload/image', async(req, res, next) => {
         imageName: imageName,
         productId: productId,
       });
+      console.log('updateDatabaseResult: ',updateDatabaseResult);
       if(updateDatabaseResult === 200) {
         res.json({
           success: true,
