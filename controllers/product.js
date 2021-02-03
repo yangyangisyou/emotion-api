@@ -13,7 +13,7 @@ router.get('/list/:productCat', async(req, res, next) => {
   res.json(data);
 });
 
-router.get('/product/item/:productId', async(req, res, next) => {
+router.get('/item/:productId', async(req, res, next) => {
   const productId = req.params.productId;
   const result = await getProductItem(productId);
   console.log('data /product: ', result);
