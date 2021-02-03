@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 app.use(bodyParser.json({limit: "50mb"}));
 
 // create application/x-www-form-urlencoded parser
-app.use(bodyParser.urlencoded({ extended: true, limit: '50mb', parameterLimit: 50000 }));
+app.use(bodyParser.urlencoded({ extended: false, limit: '50mb', parameterLimit: 50000 }));
 
 app.use(cors());
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
