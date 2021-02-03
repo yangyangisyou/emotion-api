@@ -5,6 +5,7 @@ const dayjs = require('dayjs');
 
 async function uploadImage(payload) {
   const image = payload.image;
+  const productId = payload.productId;
   const bufImage = Buffer.from(image.replace(/^data:image\/\w+;base64,/, ""),'base64')
   const imageName = uuid.v1();
   const ContentEncoding = 'base64';
@@ -12,7 +13,7 @@ async function uploadImage(payload) {
   console.log('bufImage==>',bufImage);
   const result = await s3.uploadObject('yy-product-image', imageName, bufImage, ContentEncoding, ContentType);
   console.log('result: ', result);
-  return { ...result, imageName };
+  return { ...result, imageName, productId };
 };
 
 async function createProduct(payload) {
@@ -31,12 +32,11 @@ async function createProduct(payload) {
   return { ...data, productId };
 };
 
-async function updateProduct(productId, payload) {
+async function updateProduct(payload) {
   const queryParams = {
     TableName: 'products',
     Item: {
       ...payload,
-      productId: productId,
     },
   };
   const data = await dynamoDB.updateItem(queryParams);
@@ -151,6 +151,7 @@ async function getProductList(productCat) {
 
 module.exports = {
     uploadImage,
+    updateProduct,
     createProduct,
     getProductList,
     getTitleList,

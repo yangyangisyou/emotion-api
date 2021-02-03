@@ -18,11 +18,28 @@ router.post('/upload/image', async(req, res, next) => {
   if(body) {
     const data = await uploadImage(body);
     if(data.code === 200) {
-      res.json({
-        success: true,
-        message: 'success-upload-image',
-        data: data.imageName,
+      const imageName = data.imageName;
+      const productId = data.productId;
+      const updateDatabaseResult = await updateProduct({
+        imageName: imageName,
+        productId: productId,
       });
+      if(updateDatabaseResult === 200) {
+        res.json({
+          success: true,
+          message: 'success-upload-image',
+          data: {
+            imageName, productId,
+          },
+        });
+      } else {
+        res.status(400).json(
+          {
+            success: false,
+            message: 'fail-upload-image-to-database',
+          }
+        );
+      }
     } else {
       res.status(400).json(
         {
