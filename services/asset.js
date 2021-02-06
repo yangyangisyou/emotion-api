@@ -32,7 +32,7 @@ async function loadVideoList(keyword) {
 // & limit = 100
 
 async function loadNewsList(keyword) {
-    const queryString = `keyword=${keyword}&date=${dayjs().format('YYYY-MM-DD')}&countries=us&languages=en&limit=10`;
+    const queryString = `keyword=${keyword}&date=${dayjs().format('YYYY-MM-DD')}&countries=us&languages=en&limit=12`;
     const data = await fetch(`${NEWS_PATH}/news?${queryString}&access_key=${NEWS_API_KEY}`)
         .then(res => res.json())
         .then(json => json);
