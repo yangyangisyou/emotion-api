@@ -32,7 +32,7 @@ async function loadVideoList(keyword) {
 
 async function loadNewsList(keyword) {
     const queryString = `keyword=${keyword}&countries=us&languages=en&limit=10`;
-    const data = await fetch(`${NEWS_PATH}/news?${encodeURIComponent(queryString)}&access_key=${NEWS_API_KEY}`)
+    const data = await fetch(`${NEWS_PATH}/news?${queryString}&access_key=${NEWS_API_KEY}`)
         .then(res => res.json())
         .then(json => json);
     return data;
