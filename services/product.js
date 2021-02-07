@@ -67,19 +67,31 @@ async function updateProduct(payload) {
 };
 
 async function getProductList(productType) {
+    // const queryParams = {
+    //   RequestItems: {
+    //     products: {
+    //       Keys: [{ productType }],
+    //       // ProjectionExpression: 'productType, productName, description, userName, tag, createDate, picture'
+    //     }
+    //   },
+    //   ReturnConsumedCapacity: 'TOTAL',
+    // };
+    // console.log('queryParams ->', queryParams);
+    // console.log('queryParams ->', JSON.stringify(queryParams));
+
+    // const data = await dynamoDB.batchGetItems(queryParams);
     const queryParams = {
-      RequestItems: {
-        products: {
-          Keys: [{ productType }],
-          // ProjectionExpression: 'productType, productName, description, userName, tag, createDate, picture'
-        }
+      TableName: 'products',
+      ExpressionAttributeValues: {
+        ':p': {S: productType},
       },
-      ReturnConsumedCapacity: 'TOTAL',
+      KeyConditionExpression: 'productType = :p',
     };
     console.log('queryParams ->', queryParams);
     console.log('queryParams ->', JSON.stringify(queryParams));
 
-    const data = await dynamoDB.batchGetItems(queryParams);
+    const data = await dynamoDB.queryItem(queryParams);
+
     return data;
 };
 
