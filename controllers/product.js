@@ -1,16 +1,23 @@
 const express = require('express')
 const router = express.Router();
-const { getTitleList, getProductList, createProduct, uploadImage, updateProduct, getProductItem } = require('../services/product');
+const { getProductList, createProduct, uploadImage, updateProduct, getProductItem } = require('../services/product');
 
-router.get('/hotTitle', async(req, res, next) => {
-    const data = await getTitleList();
-    res.json(data);
-});
-
-router.get('/list/:productCat', async(req, res, next) => {
-  const productCat = req.params.productCat;
-  const data = await getProductList(productCat);
-  res.json(data);
+router.get('/list/:productType', async(req, res, next) => {
+  const productType = req.params.productType;
+  const result = await getProductList(productType);
+  console.log('result in getProductList', result);
+  if(result.code === 200) {
+    res.json({
+      success: true,
+      message: 'load-product-list-success',
+      data: result.data,
+    });
+  } else {
+    res.json({
+      success: false,
+      message: 'load-product-list-fail',
+    });
+  }
 });
 
 router.get('/item/:productId', async(req, res, next) => {
