@@ -13,7 +13,7 @@ router.get('/list/:productType', async(req, res, next) => {
       data: result.data,
     });
   } else {
-    res.json({
+    res.status(400).json({
       success: false,
       message: 'load-product-list-fail',
     });
@@ -31,7 +31,7 @@ router.get('/item/:productId', async(req, res, next) => {
       data: result.data,
     });
   } else {
-    res.json({
+    res.status(400).json({
       success: false,
       message: 'load-product-item-fail',
     });
