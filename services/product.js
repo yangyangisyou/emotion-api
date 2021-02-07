@@ -70,12 +70,11 @@ async function getProductList(productType) {
     const queryParams = {
       RequestItems: {
         products: {
-          Keys: [
-            { productType: { S: productType } },
-          ],
+          Keys: [{ productType }],
           // ProjectionExpression: 'productType, productName, description, userName, tag, createDate, picture'
         }
-      }
+      },
+      ReturnConsumedCapacity: 'TOTAL',
     };
     console.log('queryParams ->', queryParams);
     console.log('queryParams ->', JSON.stringify(queryParams));
