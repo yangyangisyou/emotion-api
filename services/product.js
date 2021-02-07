@@ -71,9 +71,9 @@ async function getProductList(productType) {
       RequestItems: {
         'products': {
           Keys: [
-            { 'productType': productType },
+            {'productType': {S: productType}},
           ],
-          ProjectionExpression: 'productType, productName, description, userName, tag, createDate, picture'
+          // ProjectionExpression: 'productType, productName, description, userName, tag, createDate, picture'
         }
       }
     };
