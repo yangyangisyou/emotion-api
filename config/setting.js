@@ -1,11 +1,11 @@
-require('dotenv').config();
+const test = require('dotenv').config()
 const port = process.env.PORT || 8000;
 const PIXABAY_PATH = 'https://pixabay.com/api';
 const PIXABAY_API_KEY = process.env.PIXABAY_API_KEY;
 
 const NEWS_PATH = 'http://api.mediastack.com/v1';
 const NEWS_API_KEY = process.env.NEWS_KEY;
-
+console.log('test ',test);
 module.exports = {
     port,
     PIXABAY_PATH,
