@@ -86,6 +86,5 @@ module.exports = {
     updateProduct,
     createProduct,
     getProductList,
-    getTitleList,
     getProductItem,
 };
