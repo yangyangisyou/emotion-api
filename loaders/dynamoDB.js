@@ -237,7 +237,7 @@ async function batchGetItems(params) {
   async function scan(scanParams) {
     const promise = new Promise(((resolve, reject) => {
       try {
-        docClient.scan(scanParams, (err, data) => {
+        dynamodb.scan(scanParams, (err, data) => {
           if (err) {
             console.log('[error] can not scan item from DynamoDB ', err);
             resolve({ code: err.statusCode, data: null });
