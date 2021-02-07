@@ -69,9 +69,9 @@ async function updateProduct(payload) {
 async function getProductList(productType) {
     const queryParams = {
       RequestItems: {
-        'products': {
+        products: {
           Keys: [
-            { 'productType': productType },
+            { productType: productType },
           ],
           // ProjectionExpression: 'productType, productName, description, userName, tag, createDate, picture'
         }
