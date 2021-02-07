@@ -71,12 +71,13 @@ async function getProductList(productType) {
       RequestItems: {
         'products': {
           Keys: [
-            {'productType': {S: productType}},
+            { 'productType': productType },
           ],
           // ProjectionExpression: 'productType, productName, description, userName, tag, createDate, picture'
         }
       }
     };
+    console.log('queryParams ->', queryParams);
     const data = await dynamoDB.batchGetItems(queryParams);
     return data;
 };
