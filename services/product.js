@@ -82,11 +82,11 @@ async function getProductList(productType) {
     // const data = await dynamoDB.batchGetItems(queryParams);
     const queryParams = {
       TableName: 'products',
-      // FilterExpression: `#productType = :productType`,
-      // ExpressionAttributeNames: {
-      //   "#productType": "productType",
-      // },
-      // ExpressionAttributeValues: { ":productType": productType }
+      FilterExpression: `#productType = :productType`,
+      ExpressionAttributeNames: {
+        "#productType": "productType",
+      },
+      ExpressionAttributeValues: { ":productType": productType }
     };
     console.log('queryParams ->', queryParams);
     console.log('queryParams ->', JSON.stringify(queryParams));
