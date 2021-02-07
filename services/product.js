@@ -78,6 +78,8 @@ async function getProductList(productType) {
       }
     };
     console.log('queryParams ->', queryParams);
+    console.log('queryParams ->', JSON.stringify(queryParams));
+
     const data = await dynamoDB.batchGetItems(queryParams);
     return data;
 };
