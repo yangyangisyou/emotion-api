@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { getProductList, createProduct, uploadImage, updateProduct, getProductItem } = require('../services/product');
+const { getProductList, createProduct, uploadImage, updateProduct, getProductItem, getCanvas } = require('../services/product');
 
 router.get('/list/:productType', async(req, res, next) => {
   const productType = req.params.productType;
@@ -34,6 +34,24 @@ router.get('/item/:productId', async(req, res, next) => {
     res.status(400).json({
       success: false,
       message: 'load-product-item-fail',
+    });
+  }
+});
+
+router.get('/canvas/:imageName', async(req, res, next) => {
+  const imageName = req.params.imageName;
+  const result = await getCanvas(imageName);
+  console.log('result.code ',result.code);
+  if(result.code === 200) {
+    res.json({
+      success: true,
+      message: 'load-product-canvas-success',
+      data: result.data.toString('base64'),
+    });
+  } else {
+    res.status(400).json({
+      success: false,
+      message: 'load-product-canvas-fail',
     });
   }
 });

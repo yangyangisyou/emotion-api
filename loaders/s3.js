@@ -90,27 +90,28 @@ async function putObject(BucketName, fileName, content, ContentEncoding, Content
   return promise;
 }
 
-async function getS3Object(fileName) {
+async function getS3Object(bucketName, fileName) {
   fileName = fileName.trim();
   let fileKey = encodeURIComponent(fileName);
 
   let params = {
+    Bucket: bucketName,
     Key: fileKey,
-    ResponseContentType: 'application/json'
+    // ResponseContentType: 'application/json'
   };
 
   const promise = new Promise((resolve, reject) => {
     s3.getObject(params, (err, data) => {
       if (err) {
-        console.log(err.code); // an error occurred
+        console.log(err.code);
         if (err.code === 'NoSuchKey') {
-          resolve('NotFound');
+          resolve({code: 400});
         }
         reject(err);
       } else {
-        let content = data.Body.toString('ascii').replace(/\n/g, ',');
-        content = '[' + content.substring(0, content.length - 1) + ']';
-        resolve(JSON.parse(content));
+        // let content = data.Body.toString('ascii').replace(/\n/g, ',');
+        // content = '[' + content.substring(0, content.length - 1) + ']';
+        resolve({code: 200, data: data.Body});
       }
     });
   });

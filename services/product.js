@@ -3,6 +3,11 @@ const s3 = require('../loaders/s3');
 const uuid = require('uuid');
 const dayjs = require('dayjs');
 
+async function getCanvas(imageName) {
+  const result = await s3.getS3Object('yy-product-image', imageName);
+  return { ...result };
+};
+
 async function uploadImage(payload) {
   const image = payload.image;
   const productId = payload.productId;
@@ -97,6 +102,7 @@ async function getProductList(productType) {
 };
 
 module.exports = {
+    getCanvas,
     uploadImage,
     updateProduct,
     createProduct,
