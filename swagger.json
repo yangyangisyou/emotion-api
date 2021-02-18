@@ -2,13 +2,17 @@
     "openapi": "3.0.0",
     "info": {
         "version": "1.0.0",
-        "title": "product-api",
-        "description": "REST API"
+        "title": "Emotion API",
+        "description": "Copyright© by <a href=\"https://blog.yyisyou.tw\" target=\"_blank\"><u>Yang Yang</u></a>"
     },
     "tags": [
         {
-            "name": "Product API",
-            "description": "For products related"
+            "name": "Product",
+            "description": "Do something from AWS dynamoDB and S3, including item and canvas."
+        },
+        {
+            "name": "Asset",
+            "description": "Get assets from outside API"
         }
     ],
     "consumes": [
@@ -17,29 +21,200 @@
     "produces": [
         "application/json"
     ],
-    "paths": {
-        "/product": {
-            "get": {
-                "tags": [
-                    "user"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/User"
-                        }
-                    }
-                }
-            }
-        }
-    },
     "definitions": {
         "product": {
             "type": "object",
             "properties": {
                 "name": {
                     "type": "string"
+                }
+            }
+        }
+    },
+    "paths": {
+        "/product/list/{productType}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get product list from AWS dynamoDB",
+                "parameters": {
+                    "in": "body",
+                    "name": "body",
+                    "description": "",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/product"
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    },
+                    "400": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    }
+                }
+            }
+        },
+        "/product/item/{productId}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get product data from AWS dynamoDB",
+                "parameters": {
+                    "in": "body",
+                    "name": "body",
+                    "description": "",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/product"
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    },
+                    "400": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    }
+                }
+            }
+        },
+        "/product/canvas/{imageName}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get canvas image from AWS S3",
+                "parameters": {
+                    "in": "body",
+                    "name": "body",
+                    "description": "",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/product"
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    },
+                    "400": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    }
+                }
+            }
+        },
+        "/product/create": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Post data to AWS dynamoDB",
+                "parameters": {
+                    "in": "body",
+                    "name": "body",
+                    "description": "",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/product"
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    },
+                    "400": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    }
+                }
+            }
+        },
+        "/product/upload/image": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Upload image to AWS S3",
+                "parameters": {
+                    "in": "body",
+                    "name": "body",
+                    "description": "",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/product"
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    },
+                    "400": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    }
+                }
+            }
+        },
+        "/asset/image/{keywords}": {
+            "get": {
+                "tags": [
+                    "Asset"
+                ],
+                "summary": "Get image list from pixabay API",
+                "parameters": {
+                    "in": "body",
+                    "name": "body",
+                    "description": "",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/product"
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    },
+                    "400": {
+                        "description": "error",
+                        "schema": {
+                            "$ref": "#/definitions/product"
+                        }
+                    }
                 }
             }
         }
