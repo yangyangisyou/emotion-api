@@ -4,6 +4,7 @@
 Version 1.0: 
 - F2E Avalible in [Emotion platform](http://emotion-app.yyisyou.tw/)
 - Backend Avalible in [API endpoint](http://emotion-api.yyisyou.tw/)
+- Swagger Avalible in [API endpoint](http://emotion-api.yyisyou.tw/swagger/)
 
 ## Tech stack - F2E 
 [More about emotion-f2e](https://github.com/yangyangisyou/emotion-f2e)
