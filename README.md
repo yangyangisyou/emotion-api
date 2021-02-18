@@ -2,8 +2,8 @@
 
 ## Demo
 Version 1.0: 
-- Avalible in [Emotion platform](#)
-
+- F2E Avalible in [Emotion platform](http://emotion-app.yyisyou.tw/)
+- Backend Avalible in [API endpoint](http://emotion-api.yyisyou.tw/)
 
 ## Tech stack - F2E 
 [More about emotion-f2e](https://github.com/yangyangisyou/emotion-f2e)
