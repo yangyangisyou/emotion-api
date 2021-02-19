@@ -1,9 +1,10 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "version": "1.0.0",
+        "version": "0.9.0",
         "title": "Emotion API",
-        "description": "Copyright© by <a href=\"https://blog.yyisyou.tw\" target=\"_blank\"><u>Yang Yang</u></a>"
+        "description": "This platform only shows what API used in this project. Their schema doesn't avalible now. Copyright© by <a href=\"https://blog.yyisyou.tw\" target=\"_blank\"><u>Yang Yang</u></a>",
+        "contact": "ss880309@gmail.com"
     },
     "tags": [
         {
