@@ -14,6 +14,7 @@ Version 1.0:
   <img src="https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg" height="100px">  
   <img src="https://avatars.githubusercontent.com/u/10717820?s=400&v=4" height="100px">
   <img src="https://magiclen.org/wp-content/uploads/2019/06/webpack.png" height="100px">
+  <img src="https://user-images.githubusercontent.com/4060187/61057426-4e5a4600-a3c3-11e9-9114-630743e05814.png" height="100px">
 </p>
 
 ## Tech stack - Backend
