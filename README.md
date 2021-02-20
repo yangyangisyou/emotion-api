@@ -26,6 +26,7 @@ Version 1.0:
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Pixabay-logo-new.svg/1200px-Pixabay-logo-new.svg.png" height="100px">
   <img src="https://thepracticaldev.s3.amazonaws.com/i/c29t9uc8roz8g9rddbqs.png" height="100px">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png"height="100px">
+  <img src="https://user-images.githubusercontent.com/17680888/39081119-3057bbe2-456e-11e8-862c-646133ad4b43.png"height="100px">
 </p>
 
 ### Main Dependencies
