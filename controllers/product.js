@@ -6,6 +6,7 @@ router.get('/list/:productType', async(req, res, next) => {
   const productType = req.params.productType;
   const result = await getProductList(productType);
   if(result.code === 200) {
+    console.log('result.data ',result.data);
     const filteredData = result.data.filter(eachData => eachData.imageName);
     res.json({
       success: true,
