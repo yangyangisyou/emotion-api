@@ -1,5 +1,5 @@
 # Emotion website API
-
+[![Node version](https://img.shields.io/badge/node-%3E=12.18.0-brightgreen.svg)](http://nodejs.org/)
 ## Demo
 Version 1.0: 
 - F2E Avalible in [Emotion platform](http://emotion-app.yyisyou.tw/)
