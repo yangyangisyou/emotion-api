@@ -5,12 +5,12 @@ const { getProductList, createProduct, uploadImage, updateProduct, getProductIte
 router.get('/list/:productType', async(req, res, next) => {
   const productType = req.params.productType;
   const result = await getProductList(productType);
-  console.log('result in getProductList', result);
   if(result.code === 200) {
+    const filteredData = result.data.filter(eachData => eachData.imageName);
     res.json({
       success: true,
       message: 'load-product-list-success',
-      data: result.data,
+      data: filteredData,
     });
   } else {
     res.status(400).json({
